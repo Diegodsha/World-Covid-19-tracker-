@@ -1,6 +1,5 @@
 require 'httparty'
 require 'nokogiri'
-require 'byebug'
 
 class CovidTracker
   def countries
