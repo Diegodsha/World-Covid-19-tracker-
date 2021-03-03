@@ -34,5 +34,5 @@ class CovidTracker
   def search_country_info(country_name)
     country_name.downcase
     countries.select { |country| country[:name].downcase == country_name }
-end
+  end
 end
