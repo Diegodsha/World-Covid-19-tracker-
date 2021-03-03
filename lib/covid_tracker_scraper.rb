@@ -2,7 +2,7 @@ require 'httparty'
 require 'nokogiri'
 require 'byebug'
 
-#class CovidTracker
+class CovidTracker
 def covid_tracker
 #def initialize
     url = "https://www.worldometers.info/coronavirus/"
@@ -46,18 +46,22 @@ end
 #byebug
 end
 
-puts "Welcome to Covid-19 live tracker.\nPlease type the name of the country you want to research."
-search_your_country = gets.strip.downcase
+end
 
- search_result = search_country_info(search_your_country) 
+# info = CovidTracker.new
 
- puts "\nThese are Covid-19 live records for #{search_result[0][:name]} at #{Time.now.ctime}:
- \nTotal cases: #{search_result[0][:total_cases]} 
- \nNew cases: #{search_result[0][:new_cases]}
- \nTotal deaths: #{search_result[0][:total_deaths]}
- \nNew deaths: #{search_result[0][:new_deaths]}
- \nTotal recovered: #{search_result[0][:total_recovered]}
- \nActive cases: #{search_result[0][:active_cases]}
- \nPopulation: #{search_result[0][:population]}"
+# puts "Welcome to Covid-19 live tracker.\nPlease type the name of the country you want to research."
+# search_your_country = gets.strip.downcase
+
+#  search_result = info.search_country_info(search_your_country) 
+
+#  puts "\nThese are Covid-19 live records for #{search_result[0][:name]} at #{Time.now.ctime}:
+#  \nTotal cases: #{search_result[0][:total_cases]} 
+#  \nNew cases: #{search_result[0][:new_cases]}
+#  \nTotal deaths: #{search_result[0][:total_deaths]}
+#  \nNew deaths: #{search_result[0][:new_deaths]}
+#  \nTotal recovered: #{search_result[0][:total_recovered]}
+#  \nActive cases: #{search_result[0][:active_cases]}
+#  \nPopulation: #{search_result[0][:population]}"
 
 #end
