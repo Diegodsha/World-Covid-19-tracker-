@@ -2,43 +2,12 @@ require 'httparty'
 require 'nokogiri'
 require 'byebug'
 
-
-# def all_countries
-#     unparsed_page = HTTParty.get('https://www.worldometers.info/coronavirus/')
-#     parsed_page = Nokogiri::HTML(unparsed_page)
-  
-#     records = []
-#     total_countries = parsed_page.css('table.table_countries_today > tbody > tr')
-#                                       .map(&:text).count
-#     i = 8
-#     while i < 229
-#       record = parsed_page.css("table#main_table_countries_today > tbody > 
-#                                 tr[#{i}]").text
-#       record = record.split("\n")
-#       record_hash = { "name": record[2], "total_cases": record[3], 
-#                       "new_cases": record[4], 
-#                       "total_deaths": record[5], 
-#                       "new_deaths": record[6],
-#                       "total_recovered": record[7], 
-#                       "active_cases": record[8], 
-#                       "first_case": record[9] }
-#       records << record_hash
-#       i += 1
-#     end
-#    records
-#    byebug
-#   end
-# all_countries
-
-
-
-
 #class CovidTracker
 def covid_tracker
 #def initialize
     url = "https://www.worldometers.info/coronavirus/"
     unparsed_page = HTTParty.get(url)
-    parsed_page = Nokogiri::HTML(unparsed_page)
+    parsed_page ||= Nokogiri::HTML(unparsed_page.body)
     
     #all_countries = parsed_page.css('table#main_table_countries_today > tbody > tr').count
 
@@ -61,7 +30,31 @@ def covid_tracker
         i += 1
     end
     country_info
-    byebug
+    #byebug
 end
-covid_tracker
+#covid_tracker
+
+
+def search_country_info(country_name)
+country_name.downcase
+
+covid_tracker.select do|country| 
+    country[:name].downcase == country_name 
+    
+end
+
+#byebug
+end
+
+puts "Welcome to Covid-19 live tracker.\nPlease type the name of the country you want to research."
+search_your_country = gets.strip.downcase
+
+ search_result = search_country_info(search_your_country) 
+
+ puts "\nThese are Covid-19 live records for #{search_result[0][:name]} at #{Time.now.ctime}:
+ \nTotal cases: #{search_result[0][:total_cases]} 
+ \nNew cases: #{search_result[0][:new_cases]}
+ \nTotal deaths: #{search_result[0][:total_deaths]}
+ #{search_result[0][:population]}"
+
 #end
