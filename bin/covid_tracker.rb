@@ -55,6 +55,9 @@ search_your_country = gets.strip.downcase
  \nTotal cases: #{search_result[0][:total_cases]} 
  \nNew cases: #{search_result[0][:new_cases]}
  \nTotal deaths: #{search_result[0][:total_deaths]}
- #{search_result[0][:population]}"
+ \nNew deaths: #{search_result[0][:new_deaths]}
+ \nTotal recovered: #{search_result[0][:total_recovered]}
+ \nActive cases: #{search_result[0][:active_cases]}
+ \nPopulation: #{search_result[0][:population]}"
 
 #end
