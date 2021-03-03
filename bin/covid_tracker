@@ -3,6 +3,9 @@ require_relative '../lib/covid_tracker_scraper'
 
 i_hate_this_virus = CovidTracker.new
 
+search = true
+while search == true
+
 puts "Welcome to Covid-19 live tracker.\nPlease type the name of the country you want to research."
 search_your_country = gets.strip.downcase
 
@@ -16,3 +19,14 @@ search_your_country = gets.strip.downcase
  \nTotal recovered: #{search_result[0][:total_recovered]}
  \nActive cases: #{search_result[0][:active_cases]}
  \nPopulation: #{search_result[0][:population]}"
+
+ 
+ search = ""
+ until search == true || search == false
+    puts "Do you want to search fo another country (Y/N)"
+    search = gets.strip.upcase
+    search = true if search == "Y" 
+    search = false if search == "N"
+ end
+
+end
