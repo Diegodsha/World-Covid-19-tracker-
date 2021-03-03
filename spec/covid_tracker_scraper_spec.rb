@@ -6,8 +6,8 @@ describe CovidTracker do
   let(:tracker) { CovidTracker.new }
   let(:another_tracker) { CovidTracker.new }
   let(:country1) { 'mexico' }
-  let(:country2) { 'canada' }
-  let(:country3) { 'usa' }
+  let(:country2) { 'australia' }
+  let(:country3) { 'switzerland' }
   describe '#countries' do
     it 'Returns an array containing all the countries info within a hash' do
       expect(tracker.countries).to be_an(Array)
