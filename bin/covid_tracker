@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 require_relative '../lib/covid_tracker_scraper'
 
-info = CovidTracker.new
+i_hate_this_virus = CovidTracker.new
 
 puts "Welcome to Covid-19 live tracker.\nPlease type the name of the country you want to research."
 search_your_country = gets.strip.downcase
 
- search_result = info.search_country_info(search_your_country) 
+ search_result = i_hate_this_virus.search_country_info(search_your_country) 
 
  puts "\nThese are Covid-19 live records for #{search_result[0][:name]} at #{Time.now.ctime}:
  \nTotal cases: #{search_result[0][:total_cases]} 
