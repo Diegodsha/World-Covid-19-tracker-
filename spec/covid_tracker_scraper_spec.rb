@@ -22,12 +22,16 @@ describe CovidTracker do
       expect(tracker.search_country_info(country3)).to eq(another_tracker.search_country_info(country3))
     end
 
-    it 'Returns an empty array if country is not found' do
-        expect(tracker.search_country_info("wes")).to eq([])
+    it 'Returns an empty array if country is not found or does not exist' do
+        expect(tracker.search_country_info("Vice-city")).to eq([])
       end
 
       it 'Returns an empty array if country is misspelled' do
         expect(tracker.search_country_info("mexicoo")).to eq([])
+      end
+
+      it 'Returns an empty array if user inputs an unexcpeted value' do
+        expect(tracker.search_country_info("76-Donut-$")).to eq([])
       end
   end
 end
