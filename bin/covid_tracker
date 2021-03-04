@@ -25,8 +25,7 @@ while search == true
   until [true, false].include?(search)
     puts "\nDo you want to search fo another country (Y/N)"
     search = gets.strip.upcase
-    search = true if search == 'Y'
-    search = false if search == 'N'
+    search = search == 'Y' ? true : search == 'N' ? false : ''
   end
 
 end
