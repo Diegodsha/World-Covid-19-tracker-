@@ -12,6 +12,10 @@ describe CovidTracker do
     it 'Returns an array containing all the countries info within a hash' do
       expect(tracker.countries).to be_an(Array)
     end
+
+    # it 'Returns an array containing all the countries info within a hash' do
+    #     expect(tracker.countries).to be_an(Array)
+    #   end
   end
 
   describe '#search_country_info' do
