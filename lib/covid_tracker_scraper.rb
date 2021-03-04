@@ -2,6 +2,7 @@ require 'httparty'
 require 'nokogiri'
 
 class CovidTracker
+    attr_accessor :country_info
   def countries
     url = 'https://www.worldometers.info/coronavirus/'
     unparsed_page = HTTParty.get(url)
@@ -9,7 +10,7 @@ class CovidTracker
 
     all_countries = parsed_page.css('table#main_table_countries_today > tbody > tr').count
 
-    country_info = []
+    @country_info = []
 
     i = 8
     while i < all_countries - 8
@@ -24,10 +25,10 @@ class CovidTracker
         active_cases: country_record[8], population: country_record[15]
       }
 
-      country_info << country_record_hash
+      @country_info << country_record_hash
       i += 1
     end
-    country_info
+    @country_info
   end
 
   def search_country_info(country_name)

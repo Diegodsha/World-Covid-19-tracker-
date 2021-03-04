@@ -1,16 +1,28 @@
 #!/usr/bin/env ruby
+# rubocop:disable Style/NestedTernaryOperator, Metrics/BlockNesting
 require_relative '../lib/covid_tracker_scraper'
 
+require 'byebug'
+
 i_hate_this_virus = CovidTracker.new
+
+#i_hate_this_virus.countries
+#byebug
 
 search = true
 while search == true
 
   puts "\nWelcome to Covid-19 live tracker.\nPlease type the name of the country you want to research."
   puts "\n----type the country name correctly otherwise it wont find it----".upcase
-  search_your_country = gets.strip.downcase
 
-  search_result = i_hate_this_virus.search_country_info(search_your_country)
+  begin
+    search_your_country = gets.strip#.match(i_hate_this_virus.countries[1][:name])
+  rescue StandardError=>e
+    puts e
+    puts "You may have misspelled the country name"
+    puts "Try again ..."
+else
+    search_result = i_hate_this_virus.search_country_info(search_your_country)
 
   puts "\nThese are Covid-19 live records for #{search_result[0][:name]} at #{Time.now.ctime}:
  \nTotal cases: #{search_result[0][:total_cases]}
@@ -27,5 +39,6 @@ while search == true
     search = gets.strip.upcase
     search = search == 'Y' ? true : search == 'N' ? false : ''
   end
-
 end
+end
+# rubocop:enable Style/NestedTernaryOperator, Metrics/BlockNesting

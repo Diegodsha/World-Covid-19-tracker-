@@ -46,6 +46,7 @@ To run this program on your local enviroment, simply follow the steps below:
 - Cd into the folder you just cloned
 - Run `Bundle install` in your terminal to install all the required gems
 - Run `covid_tracker` and start seeing how this virus becomes an attacker :) (The hardest part of this project was to make this string to rhyme so please don't judge my rapper skills)
+- If `covid_tracker`: command not found, try `bin/covid_tracker`
 - Type the name of any country you want to search ex: Usa, Japan, Hungary, etc...
 - Typer "Y" if you want make another research or "N" if you want to exit the program
 
