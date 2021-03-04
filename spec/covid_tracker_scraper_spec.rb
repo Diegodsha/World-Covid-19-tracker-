@@ -26,5 +26,11 @@ describe CovidTracker do
     it 'Returns an array containing a hash with an specific country info' do
       expect(tracker.search_country_info(country3)).to eq(another_tracker.search_country_info(country3))
     end
+
+    it 'Returns an empty array if country is not found' do
+        expect(tracker.search_country_info("wes")).to eq([])
+      end
+
+   
   end
 end
