@@ -2,8 +2,10 @@ require 'httparty'
 require 'nokogiri'
 
 class CovidTracker
-    attr_accessor :country_info
-    protected
+  attr_accessor :country_info
+
+  protected
+
   def countries
     url = 'https://www.worldometers.info/coronavirus/'
     unparsed_page = HTTParty.get(url)
@@ -32,7 +34,8 @@ class CovidTracker
     @country_info
   end
 
-public
+  public
+
   def search_country_info(country_name)
     country_name.downcase
     countries.select { |country| country[:name].downcase == country_name }
