@@ -31,6 +31,7 @@ class CovidTracker
     end
     @country_info
   end
+
 public
   def search_country_info(country_name)
     country_name.downcase
