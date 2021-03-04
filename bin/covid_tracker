@@ -2,12 +2,7 @@
 # rubocop:disable Style/NestedTernaryOperator, Metrics/BlockNesting
 require_relative '../lib/covid_tracker_scraper'
 
-require 'byebug'
-
 i_hate_this_virus = CovidTracker.new
-
-# @country_info
-# byebug
 
 search = true
 while search == true
@@ -17,19 +12,14 @@ while search == true
 
   search_your_country = gets.strip
 
-  #search_result = nil
-  # if search_your_country.match(/\d+/)
-
-  #   puts 'Remmember, country names does not include numbers'
-  # else
   search_result = i_hate_this_virus.search_country_info(search_your_country)
-    if search_result == []
-      puts "\nCountry #{search_your_country} not found"
-      puts "\nTry again..."
-      puts "\nHINT 1: Make sure you're typing an existing country"
-      puts "HINT 2: Make sure you're not misspelling the name"
+  if search_result == []
+    puts "\nCountry #{search_your_country} not found"
+    puts "\nTry again..."
+    puts "\nHINT 1: Make sure you're typing an existing country"
+    puts "HINT 2: Make sure you're not misspelling the name"
 
-    else
+  else
     puts "\nThese are Covid-19 live records for #{search_result[0][:name]} at #{Time.now.ctime}:
   \nTotal cases: #{search_result[0][:total_cases]}
   \nNew cases: #{search_result[0][:new_cases]}
