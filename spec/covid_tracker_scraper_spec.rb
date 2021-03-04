@@ -31,6 +31,8 @@ describe CovidTracker do
         expect(tracker.search_country_info("wes")).to eq([])
       end
 
-   
+      it 'Returns an empty array if country is misspelled' do
+        expect(tracker.search_country_info("mexicoo")).to eq([])
+      end
   end
 end
