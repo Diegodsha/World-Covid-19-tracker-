@@ -24,6 +24,10 @@
 
 ![mexico_info](https://user-images.githubusercontent.com/70416006/109869982-2a4e1700-7c2f-11eb-9cb3-2250ee153bf3.png)
 
+## Country not found
+
+![country_notFound](https://user-images.githubusercontent.com/70416006/110041964-9b163180-7d0a-11eb-913a-9f35ccd00339.png)
+
 ### Description
 
     This is scraper built with ruby that shows live record information about any country in the world
@@ -57,7 +61,7 @@ To run this program on your local enviroment, simply follow the steps below:
 To test this wonderful scraper you need to run `bundle install` in your terminal to instal all gems required including `rspec gem`
 then simply run `rspec` command in your terminal and tests will run (You need to cd into the World-Covid-19-scraper folder to run tests)
 
-![test_scraper](https://user-images.githubusercontent.com/70416006/109872517-27085a80-7c32-11eb-8dbe-2f4a474a26c8.png)
+![test2](https://user-images.githubusercontent.com/70416006/110041858-6c985680-7d0a-11eb-91b7-8d5e4b9ca054.png)
 
 ## Built With
 
