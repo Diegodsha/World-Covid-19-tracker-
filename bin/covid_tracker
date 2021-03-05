@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+# rubocop:disable Style/NestedTernaryOperator, Metrics/BlockNesting
+require_relative '../lib/covid_tracker_scraper'
+
+i_hate_this_virus = CovidTracker.new
+
+search = true
+while search == true
+
+  puts "\nWelcome to Covid-19 live tracker.\nPlease type the name of the country you want to research."
+  puts "\n----type the country name correctly otherwise it wont find it----".upcase
+
+  search_your_country = gets.strip
+
+  search_result = i_hate_this_virus.search_country_info(search_your_country)
+  if search_result == []
+    puts "\nCountry #{search_your_country} not found"
+    puts "\nTry again..."
+    puts "\nHINT 1: Make sure you're typing an existing country"
+    puts "HINT 2: Make sure you're not misspelling the name"
+
+  else
+    puts "\nThese are Covid-19 live records for #{search_result[0][:name]} at #{Time.now.ctime}:
+  \nTotal cases: #{search_result[0][:total_cases]}
+  \nNew cases: #{search_result[0][:new_cases]}
+  \nTotal deaths: #{search_result[0][:total_deaths]}
+  \nNew deaths: #{search_result[0][:new_deaths]}
+  \nTotal recovered: #{search_result[0][:total_recovered]}
+  \nActive cases: #{search_result[0][:active_cases]}
+  \nPopulation: #{search_result[0][:population]}"
+  end
+  search = ''
+  until [true, false].include?(search)
+    puts "\nDo you want to search fo another country (Y/N)"
+    search = gets.strip.upcase
+    search = search == 'Y' ? true : search == 'N' ? false : ''
+  end
+end
+# rubocop:enable Style/NestedTernaryOperator, Metrics/BlockNesting
